@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FormUserDetails from './FormUserDetails';
 
-class UserForm extends Component {
+export class UserForm extends Component {
     state = {
         step: 1,
         firstName: '',
@@ -65,8 +66,9 @@ class UserForm extends Component {
                 return <h1>Confirm</h1>
             case 4:
                 return <h1>Success</h1>
+            default:
+                return false;   
         }
     }
 }
 
-export default UserForm
