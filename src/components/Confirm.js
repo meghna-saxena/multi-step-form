@@ -17,12 +17,21 @@ class Confirm extends Component {
 
     render() {
         const { values: { firstName, lastName, email, occupation, city, bio } } = this.props;
+        const { values } = this.props
+
+        const listItems = Object.keys(values).map(item => {
+            return <ListItem
+                primaryText={item}
+                secondaryText={values[item]}
+            />
+        })
 
         return (
             <MuiThemeProvider>
                 <React.Fragment>
                     <AppBar title="Confirm User Data" />
                     <List>
+                        {listItems}
                         <ListItem
                             primaryText="First Name"
                             secondaryText={firstName}
@@ -47,7 +56,6 @@ class Confirm extends Component {
                             primaryText="Bio"
                             secondaryText={bio}
                         />
-
                     </List>
                     <br />
                     <RaisedButton
